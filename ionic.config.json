@@ -1,0 +1,7 @@
+{
+  "name": "GeometricFigureApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
