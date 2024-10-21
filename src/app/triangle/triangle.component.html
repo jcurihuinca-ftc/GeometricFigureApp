@@ -1,0 +1,44 @@
+<ion-card>
+  <ion-card-header>
+    <h2>Calcular Perímetro del Triángulo</h2>
+  </ion-card-header>
+
+  <!-- Selector para el tipo de triángulo -->
+  <ion-item>
+    <ion-label>Tipo de Triángulo</ion-label>
+    <ion-select [(ngModel)]="tipoTriangulo">
+      <ion-select-option value="escaleno">Escaleno</ion-select-option>
+      <ion-select-option value="equilatero">Equilátero</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Formulario para triángulo escaleno -->
+  <div *ngIf="tipoTriangulo === 'Escaleno'">
+    <ion-item>
+      <ion-label position="floating">Lado A</ion-label>
+      <ion-input type="number" [(ngModel)]="ladoA"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Lado B</ion-label>
+      <ion-input type="number" [(ngModel)]="ladoB"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Lado C</ion-label>
+      <ion-input type="number" [(ngModel)]="ladoC"></ion-input>
+    </ion-item>
+  </div>
+
+  <!-- Formulario para triángulo equilátero -->
+  <div *ngIf="tipoTriangulo === 'Equilatero'">
+    <ion-item>
+      <ion-label position="floating">Lado Equilátero</ion-label>
+      <ion-input type="number" [(ngModel)]="ladoEquilatero"></ion-input>
+    </ion-item>
+  </div>
+
+  <ion-button expand="full" (click)="calcularPerimetro()">Calcular Perímetro</ion-button>
+
+  <div *ngIf="perimetro !== null">
+    <h3>El perímetro es: {{ perimetro }}</h3>
+  </div>
+</ion-card>
